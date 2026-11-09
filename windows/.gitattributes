@@ -1,0 +1,4 @@
+*.ps1 -text
+*.bat -text
+*.vbs -text
+*.txt -text

@@ -1,0 +1,21 @@
+EXPEDIENTE DR. ALEJANDRO DODOLI — instalación en laptop Windows (sin nube)
+
+INSTALAR
+1. Copiar la carpeta completa a C:\Dodoli
+2. Entrar a C:\Dodoli\windows, clic derecho en instalar.bat > "Ejecutar como administrador"
+   (instala Node.js y PostgreSQL 16, crea la base, pide letra de la USB de respaldos y el correo del doctor)
+3. Abrir el acceso directo "Expediente Dr. Dodoli" del escritorio. Arranca solo al prender la laptop.
+
+ACTUALIZAR
+Copiar la carpeta nueva encima de C:\Dodoli (NO borrar backend\.env ni respaldos\) y correr instalar.bat otra vez.
+
+RESPALDOS
+- Automático cada 24 h en C:\Dodoli\respaldos y en la USB (carpeta RespaldosDodoli). Ver menú Respaldos.
+- Cambiar la USB: editar RESPALDOS_COPIAS en C:\Dodoli\backend\.env (ej. E:\RespaldosDodoli) y reiniciar la laptop.
+- Restaurar: cerrar la app (Administrador de tareas > node.exe), luego en C:\Dodoli\backend:
+    node src\scripts\restaurar.js C:\Dodoli\respaldos\respaldo_AAAA-MM-DD_HHMM.dump
+
+PROBLEMAS
+- No abre la página: ver C:\Dodoli\app.log
+- Si PostgreSQL ya estaba instalado, el instalador se detiene: crear usuario dodoli_user y base dodoli a mano
+  y escribir backend\.env con base en backend\.env.example.
