@@ -1,0 +1,8 @@
+.claude/
+.superpowers/
+node_modules/
+docs/entrega/03-credenciales-entrega.md
+.worktrees/
+.env
+*.env.local
+catalogos/

@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+/* --acento lo fija la instancia (CLIENTE_COLOR) al cargar /api/config */
+:root {
+  --acento: #7C3AED;
+  /* Variables que usan las pantallas heredadas de Elys/RHATA (módulo Personal) */
+  --color-accent:  var(--acento);
+  --color-primary: #F4F4F5;
+  --color-sage:    #E4E4E7;
+  --color-dark:    #18181B;
+  --color-cream:   #F4F4F5;
+}
+
+/* Los azules de las pantallas heredadas toman el color del cliente */
+@theme {
+  --color-blue-600: var(--acento);
+  --color-blue-700: var(--acento);
+  --color-blue-800: var(--acento);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+  background: #F4F4F5;
+  color: #18181B;
+}
+.font-mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+
+/* Impresión: solo sale .print-area (tickets, cortes) */
+@media print {
+  body { background: white; }
+  body:has(.print-area) * { visibility: hidden; }
+  body:has(.print-area) :is(.print-area, .print-area *) { visibility: visible; }
+  .print-area { position: absolute; left: 0; top: 0; }
+}
